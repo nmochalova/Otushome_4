@@ -29,7 +29,8 @@ public class BaseTest  {
 
   @BeforeClass
   public static void startWireMock() {
-    configureFor(9190);
+    int port = Integer.parseInt(System.getProperty("port.wiremock"));
+    configureFor(port);
   }
 
   @Before

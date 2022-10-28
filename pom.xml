@@ -22,6 +22,7 @@
         <browser.version>104.0</browser.version>
         <webdriver.remote.url>http://127.0.0.1/wd/hub</webdriver.remote.url>
         <wiremock.hostname>http://localhost:9190</wiremock.hostname>
+        <port.wiremock>9190</port.wiremock>
 
         <test.project.language>RU</test.project.language>
         <webdriver.base.url>http://0.0.0.0:9999</webdriver.base.url>
@@ -124,6 +125,7 @@
                         <webdriver.remote.url>${webdriver.remote.url}</webdriver.remote.url>
                         <base.url>${base.url}</base.url>
                         <wiremock.hostname>${wiremock.hostname}</wiremock.hostname>
+                        <port.wiremock>${port.wiremock}</port.wiremock>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

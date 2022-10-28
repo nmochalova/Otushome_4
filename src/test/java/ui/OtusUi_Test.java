@@ -1,5 +1,6 @@
 package ui;
 
+import data.Titles;
 import datatable.DataTableCourse;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import stubs.UserStub;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -44,7 +46,7 @@ public class OtusUi_Test extends BaseTest {
 
         //Выбираем самый ранний курс
         WebElement course = mainPage.getMinMaxDateOfCourse(nameAndDate, false); //false = ищем min
-        String titleBeforeClick = mainPage.getNameOfCourse(course).toUpperCase();
+        String titleBeforeClick = mainPage.getNameOfCourse(course);
 
         //наводим курсор на выбранный курс
         mainPage.moveToElement(course);
@@ -52,10 +54,12 @@ public class OtusUi_Test extends BaseTest {
 
         //Переходим на страницу курса
         CoursePage coursePage = new CoursePage(driver);
-        String titleAfterClick = coursePage.getTitleByCourse(titleBeforeClick).toUpperCase();
+        String titleAfterClick = coursePage.getTitleByCourse(titleBeforeClick);
 
         //Проверяем, что открылась страница в соответствии с выбранным курсом
-        //    assertTrue(titleAfterClick.toUpperCase().contains(titleBeforeClick.toUpperCase()), "TEST_ERROR: The open page does not match the selected course.");
+        String expectedTitle=Titles.getExpectedTitleCoursePage(titleBeforeClick);
+
+        assertThat(titleAfterClick).isEqualTo(expectedTitle);
     }
 
     @Test
@@ -76,7 +80,9 @@ public class OtusUi_Test extends BaseTest {
         String titleAfterClick = coursePage.getTitleByCourse(titleBeforeClick);
 
         //Проверяем, что открылась страница в соответствии с выбранным курсом
-  //      assertTrue(titleAfterClick.toUpperCase().contains(titleBeforeClick.toUpperCase()), "TEST_ERROR: The open page does not match the selected course.");
+        String expectedTitle=Titles.getExpectedTitleCoursePage(titleBeforeClick);
+
+        assertThat(titleAfterClick).isEqualTo(expectedTitle);
     }
 
 }
