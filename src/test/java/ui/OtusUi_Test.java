@@ -2,19 +2,12 @@ package ui;
 
 import data.Titles;
 import datatable.DataTableCourse;
-import io.restassured.response.Response;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import pages.CoursePage;
 import pages.MainPage;
-import services.UserApi;
-import stubs.CourseStub;
-import stubs.ScoreStub;
-import stubs.UserStub;
-
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

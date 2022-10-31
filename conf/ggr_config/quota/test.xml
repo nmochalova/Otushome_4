@@ -1,0 +1,12 @@
+<qa:browsers xmlns:qa="urn:config.gridrouter.qatools.ru">
+<browser name="chrome" defaultVersion="104.0">
+    <version number="104.0">
+        <region name="1">
+            <host name="127.0.0.1" port="4445" count="12" vnc="vnc://127.0.0.1:5900"/>
+        </region>
+        <region name="2">
+            <host name="127.0.0.1" port="4446" count="12" vnc="vnc://127.0.0.1:5900"/>
+        </region>
+    </version>
+</browser>
+</qa:browsers>
